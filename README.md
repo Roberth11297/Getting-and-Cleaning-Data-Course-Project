@@ -20,5 +20,5 @@ Es por lo anterior que, en este repositorio, se presenta un script de R llamado 
 ## Archivos
 - README: describe el objetivo, antecedentes del problema y los archivos necesarios para el desarrollo del proyecto.
 - CodeBook: describe las variables, los datos y las transformaciones y trabajos que se realizaron para limpiar los datos.
-- run_analysis.R: script para realizar el análisis.
+- run_analysis.R: script con explicación para realizar el análisis.
 - tidy_data.txt: conjunto de datos ordenado.
