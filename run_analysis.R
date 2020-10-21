@@ -41,8 +41,22 @@ str(datacom1)
 namescol<-colnames(datacom1)
 filtradocol<-grep("std\\(\\)|mean\\(\\)|Subject|Activity", namescol, value=TRUE)
 datacom2<-datacom1[,filtradocol]
+
 ####################Nombres de actividades descriptivas############################
 setwd("C:/Users/Pavilion/Desktop/Coursera/Curso de ciencia de datos/Data cleaning/Proyecto/Getting-and-Cleaning-Data-Course-Project/UCI HAR Dataset")
 activities<-read.table("activity_labels.txt", header = FALSE)
 datacom2$Activity<-activities$V2[match(datacom2$Activity, activities$V1)]
+
 #######################Etiquetado del conjunto de datos############################
+names(datacom2)<-gsub("Acc", "Accelerometer", names(datacom2))
+names(datacom2)<-gsub("Gyro", "Gyroscope", names(datacom2))
+names(datacom2)<-gsub("^t", "Time", names(datacom2))
+names(datacom2)<-gsub("Mag", "Euclidean norm", names(datacom2))
+names(datacom2)<-gsub("^f", "Frequency", names(datacom2))
+
+####################Generación de un nuevo conjunto de datos#######################
+library(plyr)
+datacom3<-aggregate(. ~Subject + Activity, datacom2, mean)        
+setwd("C:/Users/Pavilion/Desktop/Coursera/Curso de ciencia de datos/Data cleaning/Proyecto/Getting-and-Cleaning-Data-Course-Project")
+write.table(datacom3, file = "tidy_data.txt",row.name=FALSE)
+
