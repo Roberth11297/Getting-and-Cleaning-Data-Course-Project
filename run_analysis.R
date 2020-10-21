@@ -35,6 +35,14 @@ names(dx)<-features$V2
 
 #Generación de un conjunto de datos
 datacom1<-cbind(ds, dy, dx)
+str(datacom1)
 
 #############################Extracción de medidas#################################
-
+namescol<-colnames(datacom1)
+filtradocol<-grep("std\\(\\)|mean\\(\\)|Subject|Activity", namescol, value=TRUE)
+datacom2<-datacom1[,filtradocol]
+####################Nombres de actividades descriptivas############################
+setwd("C:/Users/Pavilion/Desktop/Coursera/Curso de ciencia de datos/Data cleaning/Proyecto/Getting-and-Cleaning-Data-Course-Project/UCI HAR Dataset")
+activities<-read.table("activity_labels.txt", header = FALSE)
+datacom2$Activity<-activities$V2[match(datacom2$Activity, activities$V1)]
+#######################Etiquetado del conjunto de datos############################
