@@ -18,3 +18,7 @@ Es por lo anterior que, en este repositorio, se presenta un script de R llamado 
 4.- Etiqueta adecuadamente el conjunto de datos con nombres de variables descriptivos.
 5.- A partir del conjunto de datos del paso 4, crea un segundo conjunto de datos ordenado e independiente con el promedio de cada variable para cada actividad y cada tema.
 ## Archivos
+README: describe el objetivo, antecedentes del problema y los archivos necesarios para el desarrollo del proyecto.
+CodeBook: describe las variables, los datos y las transformaciones y trabajos que se realizaron para limpiar los datos.
+run_analysis.R: script para realizar el análisis.
+tidy_data.txt: conjunto de datos ordenado.
